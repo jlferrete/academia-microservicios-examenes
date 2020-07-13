@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 @Entity
 @Table(name="preguntas")
 public class Pregunta {
@@ -48,6 +49,23 @@ public class Pregunta {
 
 	public void setExamen(Examen examen) {
 		this.examen = examen;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(this == obj) {
+			return true;
+		}
+		
+		if(!(obj instanceof Pregunta)) {
+			return false;
+		}
+		
+		Pregunta a = (Pregunta) obj;
+		
+		return this.id != null && this.id.equals(a.getId());
+		
 	}
 	
 	
