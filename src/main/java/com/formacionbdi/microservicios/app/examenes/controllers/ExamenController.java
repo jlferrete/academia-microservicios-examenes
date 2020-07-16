@@ -1,5 +1,6 @@
 package com.formacionbdi.microservicios.app.examenes.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -22,7 +23,7 @@ import com.formacionbdi.microservicios.commons.examenes.models.entity.Examen;
 public class ExamenController extends CommonController<Examen, ExamenService> {
 
 	@GetMapping("/respondidos-por-preguntas")
-	public ResponseEntity<?> obtenerExamenesIdsPorPreguntasIdRespondidas(@RequestParam Iterable<Long> preguntaIds) {
+	public ResponseEntity<?> obtenerExamenesIdsPorPreguntasIdRespondidas(@RequestParam List<Long> preguntaIds) {
 		return ResponseEntity.ok().body(service.findExamenesIdsConRespuestasByPreguntaIds(preguntaIds));
 	}
 	
